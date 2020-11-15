@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "mapRoot": "./src/",
+    "module": "CommonJS",
+    "noImplicitAny": false,
+    "outDir": "./dist",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "rootDir": "src",
+    "sourceMap": true,
+    "sourceRoot": "./dist/",
+    "target": "es6"
+  }
+}

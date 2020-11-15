@@ -1,0 +1,36 @@
+{
+  "name": "p5-typescript-starter",
+  "version": "1.0.0",
+  "description": "Project to quickly get something working in [p5.js](https://p5js.org/) and [typescript](https://www.typescriptlang.org/)",
+  "private": true,
+  "watch": {
+    "start-compile": "src/*.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "run-p start-compile start-run",
+    "start-compile": "tsc && webpack",
+    "old-start-run": "webpack serve --hot",
+    "start-run": "browser-sync start --server -w",
+    "watch": "npm-watch"
+  },
+  "homepage": "https://github.com/Gaweph/p5-typescript-starter#readme",
+  "devDependencies": {
+    "@types/p5": "^0.9.0",
+    "browser-sync": "^2.26.13",
+    "npm-run-all": "^4.1.5",
+    "terser-webpack-plugin": "^5.0.3",
+    "ts-loader": "^8.0.7",
+    "typescript": "^3.8.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webgl-operate": "^0.7.1",
+    "webpack": "^5.3.0",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "gl-matrix": "^3.3.0",
+    "npm-watch": "^0.7.0",
+    "rxjs": "^6.6.3"
+  }
+}

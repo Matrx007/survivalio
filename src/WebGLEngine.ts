@@ -9,6 +9,8 @@ export abstract class WebGLEngine {
     private settings : any;
     protected shaderProgramInfo : any = {};
 
+    protected readonly canvas : HTMLCanvasElement;
+
     public keepRunning : boolean = false;
 
     // ### RENDERER ###
@@ -53,8 +55,8 @@ export abstract class WebGLEngine {
     public constructor(settings: any) {
         this.settings = settings;
 
-        const canvas : any = document.getElementById('glCanvas');
-        this.gl = canvas.getContext('webgl');
+        this.canvas = <HTMLCanvasElement> document.getElementById('glCanvas');
+        this.gl = this.canvas.getContext('webgl');
 
         if (this.gl == null) {
             alert("Unable to initialize WebGL. Your browser or machine may not support it.");

@@ -1,6 +1,7 @@
 import { Renderable } from "./Renderable";
 import { WebGLEngine } from "./WebGLEngine";
 import { WebGLUtils } from "./WebGLUtils";
+import { Input } from "./Input";
 
 export class Test extends WebGLEngine {
 
@@ -9,8 +10,13 @@ export class Test extends WebGLEngine {
     mouseX : number = 0;
     mouseY : number = 0;
 
+    input : Input;
+
     public constructor() {
         super({});
+
+        this.input = new Input(this.canvas);
+        this.input.addEventListeners();
     }
 
     public init() : void {
@@ -20,10 +26,28 @@ export class Test extends WebGLEngine {
     }
 
     public tick() : void {
+        if(this.input.keys[" "]) return;
+
         this.renderable.moveVoid(-this.mouseX, -this.mouseY);
+
+        let speedX : number = 0;
+        let speedY : number = 0;
+
+        if(this.input.keys["w"] || this.input.keys["W"]) {
+            speedY -= 8;
+        }
+        if(this.input.keys["s"] || this.input.keys["S"]) {
+            speedY += 8;
+        }
+        if(this.input.keys["a"] || this.input.keys["A"]) {
+            speedX -= 8;
+        }
+        if(this.input.keys["d"] || this.input.keys["D"]) {
+            speedX += 8;
+        }
         
-        this.mouseX+=4;
-        this.mouseY+=4;
+        this.mouseX+=speedX;
+        this.mouseY+=speedY;
 
         this.renderable.moveVoid(this.mouseX, this.mouseY);
     }

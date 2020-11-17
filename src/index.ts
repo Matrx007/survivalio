@@ -1,4 +1,4 @@
-import { Test } from "./test";
+import { Test } from "./Test";
 import { WebGLEngine } from "./WebGLEngine";
 import { WebGLTest } from "./WebGLTest";
 
